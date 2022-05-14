@@ -38,7 +38,7 @@ app.use(xss())
 
 //dummy route
 app.get("/", (req, res) => {
-  res.send("Jobs API")
+  res.send("Jobs API Successfully running")
 })
 
 // routes
