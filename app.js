@@ -7,6 +7,11 @@ const cors = require("cors")
 const xss = require("xss-clean")
 const rateLimit = require("express-rate-limit") //Used to limit repeated requests to public APIs and/or endpoints such as password reset
 
+//Swagger (give the backend API a user interface)
+const swaggerUI = require("swagger-ui-express")
+const YAML = require("yamljs")
+const document = YAML.load("./swagger.yaml")
+
 const express = require("express")
 const app = express()
 
@@ -36,10 +41,10 @@ app.use(helmet())
 app.use(cors())
 app.use(xss())
 
-//dummy route
 app.get("/", (req, res) => {
-  res.send("Jobs API Successfully running")
+  res.send(`<h1>Jobs API Successfully running</h1> <a href="api-docs"> API Documentation </a>`)
 })
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(document))
 
 // routes
 app.use("/api/v1/auth", authRouter)
