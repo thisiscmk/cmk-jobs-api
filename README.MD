@@ -31,7 +31,7 @@ Email Validation Regex
 - Save User
 - Generate Token
 - Send Response with Token
-- Store encryption key from allkeysgenerator.com into the env file
+- Store encryption key from allkeysgenerator.com (256 bit) into the env file
 
 #### Login User
 
@@ -56,7 +56,17 @@ Email Validation Regex
 - xss-clean
 - express-rate-limit
 
-Swagger UI
+
+#### API Documentation (Swagger UI)
+
+- export postman collection
+- import them to apimatic and edit the api
+- skip authentication for register and login routes and save them in a different endpoint group
+- save and export api as openapi v3.0(YAML) for swagger ui to understand the code
+- test the api with swagger editor
+- once everything works, paste the api into a created swagger file on the app
+
+Swagger UI Parameters for job routes containing IDs (to be replaced in the editor)
 
 ```yaml
 /jobs/{id}:
